@@ -1,0 +1,21 @@
+body {
+    background: #555;
+}
+
+.content {
+    max-width: 1000px;
+    min-width: 320px;
+    margin: auto;
+    background: white;
+    padding: 10px;
+}
+
+.index-container {
+    display: grid;
+    justify-content: center;
+}
+
+.container {
+    display: grid;
+    justify-content: center;
+}

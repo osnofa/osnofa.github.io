@@ -1,8 +1,35 @@
 <!DOCTYPE html>
 <html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script>
+				$(document).ready(function(){
+					$(".external").click(function(){
+						//alert("button clicked");
+						$.ajax({
+							url: '',
+							type: 'GET',
+							headers: {  'Access-Control-Allow-Origin': 'http://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=441991' },
+							success: function(res) {
+								console.log(res.responseText);
+								$(res.responseText).find('div.contentTitle').first(function() {
+									alert($(this).html());
+									$('.here').append($(this).html());
+								});
+							}
+						});
+					});
+				});
+		</script>
+	</head>
 	<body>
-		<!-- http://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=420643 -->
-		<h1>Testing GitHub Pages</h1>
-		<img src="http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=420643&type=card">
+		<div class="container">
+			<h1>Planeswalker's Guide to the Multiverse</h1>
+			<input type="text"> <input type="button" value="Submit">
+			<a href="card.html">Akroma</a>
+			<a href="#" class="external">Akroma, but fetching data from the gatherer website</a>
+			<h2 class="here"></h2>
+		</div>
 	</body>
 </html>
